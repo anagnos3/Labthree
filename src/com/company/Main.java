@@ -13,7 +13,7 @@ public class Main {
      * @param url url to retrieve contents from
      * @return the contents from the url as a string, or an empty string on error
      */
-    public static String urlToString(final String url) {
+    private static String urlToString(final String url) {
         Scanner urlScanner;
         try {
             urlScanner = new Scanner(new URL(url).openStream(), "UTF-8");
@@ -27,17 +27,17 @@ public class Main {
 
     private static int wordCount(final String input) {
 
-        String[] mezzaine = input.split(" ");
-        return mezzaine.length;
+//        String[] mezzaine = input.split(" ");
+//        System.out.println(mezzaine.length);
 
-//        int count = 0;
-//
-//        for (int i = 0; i < input.length()-1; i++) {
-//            if (input.charAt(i) == ' ' && input.charAt(i+1) != ' ') {
-//                count++;
-//            }
-//        }
-//        return count;
+        int count = 0;
+
+        for (int i = 0; i < input.length()-1; i++) {
+            if (input.charAt(i) == ' ' && input.charAt(i+1) != ' ' && !input.substring(i+1, i+2).equals("\n")) {
+                count++;
+            }
+        }
+        return count;
 
 //        "  Francisco, a soldier\n" +
 //                "  Reynaldo, servant to Polonius.\n" +
